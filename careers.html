@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="./image/favicon-rounded.svg" />
+  <link rel="shortcut icon" type="image/jpeg" href="./image/brand-logo.jpg" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body class="page-enter">
@@ -53,6 +55,7 @@
         <button class="chip" data-filter="content">Content</button>
         <button class="chip" data-filter="production">Production</button>
         <button class="chip" data-filter="growth">Growth</button>
+        <button class="chip" data-filter="finance">Kế toán</button>
       </div>
 
       <div class="jobs-grid">
@@ -79,6 +82,13 @@
           <p class="muted">Theo dõi dữ liệu kênh, tổng hợp insight hiệu suất và đề xuất phương án tối ưu tăng trưởng.</p>
           <ul><li>Tư duy logic, cẩn thận với số liệu</li><li>Sử dụng tốt Sheets/Excel là một lợi thế</li></ul>
         </article>
+
+        <article class="job-card" data-role="finance">
+          <h3>Kế toán</h3>
+          <p class="muted">Phụ trách theo dõi thu chi, chứng từ, báo cáo tài chính nội bộ và phối hợp vận hành dòng tiền công ty.</p>
+          <ul><li>Cẩn thận, trung thực, nắm vững nghiệp vụ kế toán cơ bản</li><li>Sử dụng tốt Excel/Sheets và phần mềm kế toán là lợi thế</li></ul>
+          <a class="btn btn-ghost job-detail-link" target="_blank" rel="noreferrer" href="https://drive.google.com/file/d/1ycq-kkP7moxZR-CbdGDE2iHbt00SWeMj/view?usp=drivesdk">Xem thông tin chi tiết</a>
+        </article>
       </div>
     </section>
 
@@ -100,21 +110,22 @@
         <div class="apply-card">
           <h2>Biểu mẫu ứng tuyển nhanh</h2>
           <p class="muted">Điền thông tin cơ bản để chuẩn bị nội dung gửi qua Facebook hoặc email tuyển dụng.</p>
-          <form id="apply-form" class="form-stack">
-            <input id="candidate-name" type="text" placeholder="Họ và tên" required />
-            <input id="candidate-phone" type="text" placeholder="Số điện thoại" required />
-            <input id="candidate-email" type="email" placeholder="Email" required />
-            <select id="candidate-role" required>
+          <form id="apply-form" class="form-stack" action="mailto:hoangvanmanhcntt@gmail.com?subject=Ung%20tuyen%20Lo%20Vang%20Group" method="post" enctype="text/plain" autocomplete="on">
+            <input id="candidate-name" name="Ho ten" type="text" placeholder="Họ và tên" autocomplete="name" required />
+            <input id="candidate-phone" name="So dien thoai" type="tel" inputmode="tel" placeholder="Số điện thoại" autocomplete="tel" required />
+            <input id="candidate-email" name="Email" type="email" placeholder="Email" autocomplete="email" required />
+            <select id="candidate-role" name="Vi tri ung tuyen" required>
               <option value="">Chọn vị trí ứng tuyển</option>
               <option>Content Strategist YouTube</option>
               <option>Video Editor</option>
               <option>Thumbnail Designer</option>
               <option>YouTube Growth Analyst</option>
+              <option>Kế toán</option>
             </select>
-            <textarea id="candidate-note" rows="5" placeholder="Giới thiệu ngắn về bản thân, kinh nghiệm hoặc portfolio/link dự án"></textarea>
+            <textarea id="candidate-note" name="Gioi thieu" rows="5" placeholder="Giới thiệu ngắn về bản thân, kinh nghiệm hoặc portfolio/link dự án"></textarea>
             <div class="form-actions">
-              <a id="apply-facebook" class="btn" target="_blank" rel="noreferrer" href="https://www.facebook.com/profile.php?id=100083175738807&sk=directory_contact_info&locale=vi_VN">Gửi qua Facebook</a>
-              <a id="apply-email" class="btn btn-ghost" href="mailto:hoangvanmanhcntt@gmail.com">Gửi qua Email</a>
+              <a class="btn" target="_blank" rel="noreferrer" href="https://www.facebook.com/messages/t/100083175738807/">Gửi qua Messenger</a>
+              <button class="btn btn-ghost" type="submit">Gửi qua Email</button>
             </div>
           </form>
         </div>

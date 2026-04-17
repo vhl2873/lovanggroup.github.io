@@ -51,18 +51,6 @@ perfToggle?.addEventListener('click', () => {
 
 syncToolbarState();
 
-document.querySelectorAll('a[href]').forEach((link) => {
-  const href = link.getAttribute('href') || '';
-  const isInternal = href && !href.startsWith('http') && !href.startsWith('mailto:') && !href.startsWith('tel:') && !href.startsWith('#');
-  if (!isInternal) return;
-  link.addEventListener('click', (e) => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || link.target === '_blank') return;
-    e.preventDefault();
-    document.body.classList.add('page-leave');
-    setTimeout(() => { window.location.href = href; }, 220);
-  });
-});
-
 navToggle?.addEventListener('click', () => {
   const opened = topbar?.classList.toggle('menu-open');
   navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
@@ -106,7 +94,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.hero-content, .card, .job-card, .quote, .alt, .cta, .apply-card, .case-card, .masonry-grid img, .project-showcase .case-card').forEach((el) => observer.observe(el));
+document.querySelectorAll('.hero-content, .card, .job-card, .quote, .alt, .cta, .apply-card, .case-card, .platform-panel, .platform-card, .masonry-grid img, .project-showcase .case-card').forEach((el) => observer.observe(el));
 
 const parallaxLayers = Array.from(document.querySelectorAll('[data-parallax]'));
 const heroContent = document.querySelector('.hero-content');
@@ -263,29 +251,7 @@ if (heroGrid) {
   });
 }
 
-const form = document.getElementById('apply-form');
-const fbLink = document.getElementById('apply-facebook');
-const emailLink = document.getElementById('apply-email');
-
-function buildMessage() {
-  const name = document.getElementById('candidate-name')?.value?.trim() || '';
-  const phone = document.getElementById('candidate-phone')?.value?.trim() || '';
-  const email = document.getElementById('candidate-email')?.value?.trim() || '';
-  const role = document.getElementById('candidate-role')?.value?.trim() || '';
-  const note = document.getElementById('candidate-note')?.value?.trim() || '';
-  return `Xin chào Ló Vàng Group,%0A%0ATôi muốn ứng tuyển vị trí: ${encodeURIComponent(role)}%0A%0AHọ tên: ${encodeURIComponent(name)}%0ASĐT: ${encodeURIComponent(phone)}%0AEmail: ${encodeURIComponent(email)}%0A%0AGiới thiệu:%0A${encodeURIComponent(note)}`;
-}
-
-function syncApplyLinks() {
-  const payload = buildMessage();
-  if (fbLink) fbLink.href = `https://www.facebook.com/profile.php?id=100083175738807&sk=directory_contact_info&locale=vi_VN`;
-  if (emailLink) emailLink.href = `mailto:hoangvanmanhcntt@gmail.com?subject=Ung%20tuyen%20Lo%20Vang%20Group&body=${payload}`;
-}
-
-form?.addEventListener('input', syncApplyLinks);
-syncApplyLinks();
-
-const motionCards = Array.from(document.querySelectorAll('.card, .job-card, .case-card, .apply-card, .contact-item'));
+const motionCards = Array.from(document.querySelectorAll('.card, .job-card, .case-card, .apply-card, .contact-item, .platform-card'));
 motionCards.forEach((card) => {
   card.addEventListener('pointermove', (e) => {
     if (window.innerWidth < 900) return;
